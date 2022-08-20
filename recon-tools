@@ -1,0 +1,86 @@
+Recon tools for Web Application Pentesting
+
+#Proxy
+1. Burpsuite
+2. Zap proxy
+
+#Subdomain
+1. subfinder
+2. amass
+3. dig
+4. assetfinder
+5. sbilist3r
+6. chaos
+
+#Webspidering
+1. gospider
+2. gau
+3. linkfinder
+4. waybackurls
+5. hakrawler
+6. paramspider
+
+#directory/fuzzing
+1. ffuf
+2. wfuzz
+3. gobuster
+4. dirbuster
+
+#fingerprinting
+1. wappalyzer
+2. builtwith
+3. netcraft
+4. whatweb
+5. wafw00f
+
+#Vulnerability
+1. nuclei
+2. wpscan
+3. nikto
+
+#email
+1. mxtoolbox
+2. emkei
+3. anonymailer
+4. thunderbird
+
+#exploit
+1. searchsploit
+2. exploitdb
+
+#sentivedata
+1. Trufflehog
+2. gitsecrets
+
+#api
+1. postman
+2. graphqlmap
+
+#payloads/wordlists
+1. swisskeyrepo
+2. seclists
+
+#ports
+1. nmap
+2. masscan
+3. zmap
+4. smap
+5. hackertarget
+
+#ssl
+1. sslscan
+2. sslhopper
+
+#searchengines
+1. shodan
+2. censys
+3. zoomeye
+4. google
+
+#misc
+1. httpx
+2. metasploit
+3. dnsdumpster
+4. httprobe
+5. recong-ng
+6. securitytrails
