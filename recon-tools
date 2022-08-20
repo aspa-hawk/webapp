@@ -6,32 +6,55 @@ Recon tools for Web Application Pentesting
 
 #Subdomain
 1. subfinder
-2. amass
+subfinder -d hackerone.com -silent| httpx -title -tech-detect -status-code
+subfinder -d hackerone.com -silent | httpx -favicon
+subfinder -d hackerone.com -silent | httpx -jarm
+subfinder -d hackerone.com -silent | httpx -asn
+
+2. amass: amass -d example.com
+
 3. dig
-4. assetfinder
-5. sbilist3r
+4. assetfinder: assetfinder google.com -subs | hakrawler | hakcheckurl | httpx | grep -v 404
+
+5. sublist3r: sublist3r -e google,yahoo,virustotal -b -v -d example.com
 6. chaos
 
 #Webspidering
 1. gospider
-2. gau
+gospider -s "https://ejemplo.com" -o output -c 10 -d 1 --blacklist ".(woff|pdf)"
+gospider -s "https://ejemplo.com/" -o output -c 10 -d 1 --other-source -H "Accept: */*" -H "Test: test" --cookie "testA=a; testB=b"
+gospider -s "https://ejemplo.com/" -o output -c 10 -d 1 --other-source
+
+2. gau (getallurls): getallurls httpx waybackurls png,jpg,gif ejemplo.com
 3. linkfinder
 4. waybackurls
 5. hakrawler
-6. paramspider
+6. paramspider: python3 paramspider.py –d ejemplo.com –exclude php,jpg,svg
 
 #directory/fuzzing
-1. ffuf
-2. wfuzz
-3. gobuster
-4. dirbuster
+1. ffuf: ffuf -c -w /usr/share/wordlists/dirb/big.txt -u http://10.10.10.10/FUZZ
+2. wfuzz: wfuzz -w /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt https://domain.com/api/FUZZ
+3. gobuster 
+gobuster dir -e -u ejemplo.com -w /usr/share/wordlists/dirb/common.txt –wildcard
+gobuster dir -u ejemplo.com -w /usr/share/wordlists/dirb/common.txt -q –wildcard
+gobuster dir -u https://sbs.lapix.com.co -w /usr/share/wordlists/dirb/common.txt -x php,html,htm
+gobuster  dns -d ejemplo.com -t 100 -w /usr/share/wordlists/dirb/common.txt –wildcard
+
+4. dirbuster: 
 
 #fingerprinting
-1. wappalyzer
-2. builtwith
+1. wappalyzer: plugin para los navegadores Firefox y Chrome que permite identificar las tecnologías bases de las páginas Web que visitamos.
+2. builtwith: https://builtwith.com/
 3. netcraft
 4. whatweb
+whatweb -a 1 <URL> #Stealthy
+whatweb -a 3 <URL> #Aggresive
+whatweb -a 4 <URL>
 5. wafw00f
+wafw00f https://example.org
+wafw00f -vv example.com
+nmap -p 80,443 --script=http-waf-detect ejemplo.com
+nmap -p 80,443 --script=http-waf-fingerprint ejemplo.com
 
 #Vulnerability
 1. nuclei
