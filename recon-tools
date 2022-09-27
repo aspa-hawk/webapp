@@ -14,9 +14,9 @@ subfinder -d hackerone.com -silent | httpx -asn
 2. amass: amass -d example.com
 
 3. dig
-4. assetfinder: assetfinder google.com -subs | hakrawler | hakcheckurl | httpx | grep -v 404
+4. assetfinder google.com -subs | hakrawler | hakcheckurl | httpx | grep -v 404
 
-5. sublist3r: sublist3r -e google,yahoo,virustotal -b -v -d example.com
+5. sublist3r -e google,yahoo,virustotal -b -v -d example.com
 6. chaos
 
 #Webspidering
@@ -50,9 +50,10 @@ gobuster  dns -d ejemplo.com -t 100 -w /usr/share/wordlists/dirb/common.txt –w
 whatweb -a 1 <URL> #Stealthy
 whatweb -a 3 <URL> #Aggresive
 whatweb -a 4 <URL>
-5. wafw00f
+5. wafw00f /whatwaf
 wafw00f https://example.org
 wafw00f -vv example.com
+whatwaf -u ejemplo.com
 nmap -p 80,443 --script=http-waf-detect ejemplo.com
 nmap -p 80,443 --script=http-waf-fingerprint ejemplo.com
 
