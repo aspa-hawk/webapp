@@ -56,6 +56,18 @@ wafw00f -vv example.com
 whatwaf -u ejemplo.com
 nmap -p 80,443 --script=http-waf-detect ejemplo.com
 nmap -p 80,443 --script=http-waf-fingerprint ejemplo.com
+nmap -sV --script vulners --script-args mincvss=5.0 target
+nmap -p80 --script http-vulners-regex target
+nmap -p443 --script http-vulners-regex --script-args paths={"/", "/api/v1"} target
+nmap -sV --script=http-php-version target
+
+The next script is to see if the PHP-CGI is vulnerable to CVE-2012-1823:
+nmap -sV --script http-vuln-cve2012-1823 target 
+nmap -p80 --script http-vuln-cve2012-1823 --script-args http-vuln-cve2012-1823.uri=/test.php target
+
+Bypass firewall
+nmap --script firewall-bypass <target>
+nmap --script firewall-bypass --script-args firewall-bypass.helper="ftp", firewall-bypass.targetport=22 <target>
 
 #Vulnerability
 1. nuclei
