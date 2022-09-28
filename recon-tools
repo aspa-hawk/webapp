@@ -10,6 +10,7 @@ subfinder -d hackerone.com -silent| httpx -title -tech-detect -status-code
 subfinder -d hackerone.com -silent | httpx -favicon
 subfinder -d hackerone.com -silent | httpx -jarm
 subfinder -d hackerone.com -silent | httpx -asn
+./reconftw.sh -d target.com -r
 
 2. amass: amass -d example.com
 
@@ -54,6 +55,9 @@ whatweb -a 4 <URL>
 wafw00f https://example.org
 wafw00f -vv example.com
 whatwaf -u ejemplo.com
+python guillotine.py -t https://www.domain.com
+python3 main.py -f -t https://demo.hypergraphql.org:8484/graphql
+
 nmap -p 80,443 --script=http-waf-detect ejemplo.com
 nmap -p 80,443 --script=http-waf-fingerprint ejemplo.com
 nmap -sV --script vulners --script-args mincvss=5.0 target
